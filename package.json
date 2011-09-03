@@ -1,0 +1,24 @@
+{
+  "author": "Christiano Milfont",
+  "name": "Widgets.js",
+  "description": "Widgets to jQuery",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/cmilfont/Widgets.js.git"
+  },
+  "engines": {
+    "node": "~v0.4.11"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "jsdom"        : "0.2.1",
+    "jquery"       : "1.5.1",
+    "ejs"          : "0.4.3",
+    "express"      : "2.4.6",
+    "eljs"         : "https://github.com/milfont/eljs/tarball/master"
+    "readyjs"      : "https://github.com/cmilfont/ready.js/tarball/master",
+    "jasmine-node" : "https://github.com/milfont/jasmine-node/tarball/master"
+  }
+}

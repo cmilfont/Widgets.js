@@ -1,6 +1,6 @@
 describe("Parse do modal", function(){
     
-	var spriteLoader, json, parsed;
+	var spriteLoader, json, parsed, $modal;
 	
 	beforeEach(function() {
 	   var fs = require("fs");
@@ -40,35 +40,28 @@ describe("Parse do modal", function(){
         global.document.documentElement.clientHeight = 80;
         global.document.documentElement.clientWidth  = 363;
        require('../lib/widgets.dialog');
+       var url = "template.html";
+       $modal = jQuery("<div>").modal(jsonTemplate, url);
 	});
 	
 	describe("Deveria renderizar o template", function() {
         it("Deveria buscar o template via Ajax", function() {
-            var url = "template.html";
-            var $modal = jQuery("<div>").modal(jsonTemplate, url);
             var rendered = $modal.html().toString();
             expect(parsed).toEqual(rendered);
         });
         
         describe("Deveria estar exibido na página", function() {
             it("Deveria estar contido em window.document", function() {
-                var url = "template.html";
-                var $modal = jQuery("<div id='testando'>").modal(jsonTemplate, url);
-	            //console.log("window: " + window);
-	            //console.log("document: " + global.document.body);
-	            var estaContido = jQuery(global.document).find("#testando").length > 0;
-	            expect(true).toEqual(estaContido);
+            	$modal.attr("id", "teste");
+	            var estaContido = jQuery(document).find("#teste")[0];
+	            expect(estaContido).toBeDefined();
             });
             
             it("Deveria não ser hidden", function() {
-                
-               // var $modal = jQuery("<div>").modal(jsonTemplate, url);
-	           // expect(true).toEqual($modal.is(':visible'));
+                expect(true).toEqual($modal.is(':visible'));
             });
             
             it("Deveria estar no centro da página", function() {
-                var url = "template.html";
-                var $modal = jQuery("<div>").modal(jsonTemplate, url);
                 var top = Math.floor(global.document.documentElement.clientHeight);
                 var left = Math.floor(global.document.documentElement.clientWidth);
                 var offset = $modal.offset();

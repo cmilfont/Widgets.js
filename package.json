@@ -8,7 +8,7 @@
     "url": "git://github.com/cmilfont/Widgets.js.git"
   },
   "engines": {
-    "node": "~v0.4.11"
+    "node": "v0.4.11"
   },
   "dependencies": {
   },

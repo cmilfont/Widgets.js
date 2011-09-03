@@ -7,6 +7,7 @@ app.set('view engine', 'html');
 
 app.use(express.bodyDecoder());
 app.use(express.cookieDecoder());
+  
 app.use(express.session({ secret: 'milfont' }));
 
 app.use(app.router);

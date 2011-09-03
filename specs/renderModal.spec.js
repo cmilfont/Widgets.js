@@ -40,7 +40,7 @@ describe("Parse do modal", function(){
         global.document.documentElement.clientHeight = 80;
         global.document.documentElement.clientWidth  = 363;
        require('../lib/widgets.dialog');
-	})
+	});
 	
 	describe("Deveria renderizar o template", function() {
         it("Deveria buscar o template via Ajax", function() {
@@ -48,15 +48,24 @@ describe("Parse do modal", function(){
             var $modal = jQuery("<div>").modal(jsonTemplate, url);
             var rendered = $modal.html().toString();
             expect(parsed).toEqual(rendered);
-        })
+        });
         
         describe("Deveria estar exibido na página", function() {
             it("Deveria estar contido em window.document", function() {
-                
-            })
+                var url = "template.html";
+                var $modal = jQuery("<div id='testando'>").modal(jsonTemplate, url);
+	            //console.log("window: " + window);
+	            //console.log("document: " + global.document.body);
+	            var estaContido = jQuery(global.document).find("#testando").length > 0;
+	            expect(true).toEqual(estaContido);
+            });
+            
             it("Deveria não ser hidden", function() {
                 
-            })
+               // var $modal = jQuery("<div>").modal(jsonTemplate, url);
+	           // expect(true).toEqual($modal.is(':visible'));
+            });
+            
             it("Deveria estar no centro da página", function() {
                 var url = "template.html";
                 var $modal = jQuery("<div>").modal(jsonTemplate, url);
@@ -65,9 +74,9 @@ describe("Parse do modal", function(){
                 var offset = $modal.offset();
                 expect(offset).toEqual({top: top, left: left});
             })
-        })
-		
-	})
+        });
+            
+	});
     
 
     
@@ -75,7 +84,7 @@ describe("Parse do modal", function(){
         var $modal = jQuery("<div>").modal({}, spriteLoader());
         var rendered = $modal.html().toString();
         expect(parsed).not.toEqual(rendered);
-    })
+    });
     
 	
 })

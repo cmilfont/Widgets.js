@@ -9,7 +9,7 @@ describe("Parse do modal", function(){
 	   spriteLoader = function() {
 	       return fs.readFileSync(__dirname + "/template.html").toString();
 	   };
-	   json = {
+	   jsonTemplate = {
                 "Widgets": {
                     Modal: {
                         head: {
@@ -24,16 +24,45 @@ describe("Parse do modal", function(){
                     ]
                 }
             };
+       
+        jQuery.extend({
+            get: function( url, callback ) {
+                var templatePath = __dirname + "/" + url;
+                var template     = fs.readFileSync(templatePath).toString();
+                callback(template);
+            }
+        });
+            
+       require('../lib/widgets.dialog');
 	})
 	
-    it("Deveria renderizar o template", function() {
-    	var renderer = new Eljs({ 
-            template: spriteLoader( "Widgets\\.Modal" ),
-            json : json, 
-            helpers: {}
-        });
-        var rendered = renderer.parse();
-        expect(parsed).toEqual(rendered);
+	describe("Deveria renderizar o template", function() {
+        it("Deveria buscar o template via Ajax", function() {
+            var url = "template.html";
+            var $modal = jQuery("<div>").modal(jsonTemplate, url);
+            var rendered = $modal.html().toString();
+            expect(parsed).toEqual(rendered);
+        })
+        
+        describe("Deveria estar exibido na página", function() {
+            it("Deveria estar contido em window.document", function() {
+                
+            })
+            it("Deveria não ser hidden", function() {
+                
+            })
+            
+        })
+		
+	})
+    
+
+    
+    xit("Não Deveria renderizar o template", function() {
+        var $modal = jQuery("<div>").modal({}, spriteLoader());
+        var rendered = $modal.html().toString();
+        expect(parsed).not.toEqual(rendered);
     })
+    
 	
 })

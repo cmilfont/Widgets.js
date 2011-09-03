@@ -251,6 +251,11 @@ https://raw.github.com/twitter/bootstrap/master/bootstrap-1.1.0.css
   -webkit-background-clip: padding-box;
   -moz-background-clip: padding-box;
   background-clip: padding-box;
+  
+  /*position: relative; top: auto; left: auto; margin: 0pt auto; z-index: 1;*/
+  
+  
+  
 }
 .modal .modal-header {
   border-bottom: 1px solid #eee;

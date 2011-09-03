@@ -1,2 +1,4 @@
 #!/bin/bash
+
+./node_modules/ready.js/bin/ready.js ready.conf.js
 node runspecs.js

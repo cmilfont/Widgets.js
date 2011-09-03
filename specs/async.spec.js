@@ -32,7 +32,7 @@ describe("Modal Async", function(){
                 });
             }
         });
-       require('../lib/widgets.dialog');
+       require('../lib/minified/widgets.min');
        var url = "template.html";
        $modal = jQuery("<div>").modal(jsonTemplate, url);
     });

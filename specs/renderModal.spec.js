@@ -42,6 +42,17 @@ describe("Parse do modal", function(){
        require('../lib/widgets.dialog');
        var url = "template.html";
        $modal = jQuery("<div>").modal(jsonTemplate, url);
+       
+       this.addMatchers({
+            toBeCentered: function() {
+            	var top = Math.floor(global.document.documentElement.clientHeight);
+                var left = Math.floor(global.document.documentElement.clientWidth);
+            	var offset = this.actual.offset();
+            	return offset.top === top && 
+                		offset.left === left;
+            }
+       });
+       
 	});
 	
 	describe("Deveria renderizar o template", function() {
@@ -58,14 +69,12 @@ describe("Parse do modal", function(){
             });
             
             it("Deveria não ser hidden", function() {
-                expect(true).toEqual($modal.is(':visible'));
+                expect( $modal.is(':visible') ).toBeTruthy();
             });
             
             it("Deveria estar no centro da página", function() {
-                var top = Math.floor(global.document.documentElement.clientHeight);
-                var left = Math.floor(global.document.documentElement.clientWidth);
-                var offset = $modal.offset();
-                expect(offset).toEqual({top: top, left: left});
+                expect($modal).toBeCentered();
+                //expect(offset).toEqual({top: top, left: left});
             })
         });
             

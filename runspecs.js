@@ -1,6 +1,9 @@
-var window = require("jsdom").jsdom().createWindow();
-global.window = window;
+var jsdom = require("jsdom").jsdom,
+    document = jsdom("<html><head></head><body></body></html>"),
+    window = document.createWindow();
 
+global.window = window;
+global.document = document;
 global.jQuery = require("jquery").create(window);
 
 var jasmine = require("jasmine-node");

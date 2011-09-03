@@ -231,11 +231,11 @@ https://raw.github.com/twitter/bootstrap/master/bootstrap-1.1.0.css
 }
 .modal {
   position: fixed;
-  top: 50%;
-  left: 50%;
+  top: 30%;
+  left: 30%;
   z-index: 2000;
   width: 560px;
-  margin: -280px 0 0 -250px;
+  /*margin: -280px 0 0 -250px;*/
   background-color: #ffffff;
   border: 1px solid #999;
   border: 1px solid rgba(0, 0, 0, 0.3);

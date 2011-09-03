@@ -32,7 +32,13 @@ describe("Parse do modal", function(){
                 callback(template);
             }
         });
-            
+        jQuery.fn.extend({
+        	offset: function() {
+                return {top: 80, left: 363};
+            }
+        });
+        global.document.documentElement.clientHeight = 80;
+        global.document.documentElement.clientWidth  = 363;
        require('../lib/widgets.dialog');
 	})
 	
@@ -51,7 +57,14 @@ describe("Parse do modal", function(){
             it("Deveria não ser hidden", function() {
                 
             })
-            
+            it("Deveria estar no centro da página", function() {
+                var url = "template.html";
+                var $modal = jQuery("<div>").modal(jsonTemplate, url);
+                var top = Math.floor(global.document.documentElement.clientHeight);
+                var left = Math.floor(global.document.documentElement.clientWidth);
+                var offset = $modal.offset();
+                expect(offset).toEqual({top: top, left: left});
+            })
         })
 		
 	})

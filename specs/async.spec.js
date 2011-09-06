@@ -32,9 +32,8 @@ describe("Modal Async", function(){
                 });
             }
         });
-       require('../lib/minified/widgets.min');
        var url = "template.html";
-       $modal = jQuery("<div>").modal(jsonTemplate, url);
+       $modal = jQuery("<div>").modal(jsonTemplate, url, "Widgets\.Modal");
     });
     
     it("Deveria renderizar o template de forma async", function() {

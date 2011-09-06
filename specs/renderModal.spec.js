@@ -39,7 +39,6 @@ describe("Parse do modal", function(){
         });
         global.document.documentElement.clientHeight = 80;
         global.document.documentElement.clientWidth  = 363;
-       require('../lib/widgets.dialog');
        var url = "template.html";
        $modal = jQuery("<div>").modal(jsonTemplate, url);
        

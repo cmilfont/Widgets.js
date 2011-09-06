@@ -8,6 +8,9 @@ global.jQuery = require("jquery").create(window);
 
 var jasmine = require("jasmine-node");
 
+require(__dirname + '/lib/widgets.core');
+require(__dirname + '/lib/widgets.dialog');
+
 var isVerbose = true;
 var showColors = true;
 jasmine.executeSpecsInFolder(__dirname + '/specs', function(runner, log){    

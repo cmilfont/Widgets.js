@@ -1,4 +1,5 @@
 var express = require('express');
+var fs = require("fs");
 
 var app = express.createServer();
 app.set('views', __dirname + '/views');
@@ -33,6 +34,11 @@ var oportunidades = [
 ];
 app.get('/oportunidades:format', function(req, res){ 
   res.send(JSON.stringify({data: oportunidades}));
+});
+
+app.get('/widgets.js', function(req, res){
+	var file = fs.readFileSync("../lib/widgets.dialog.js").toString();
+    res.send(file);
 });
 
 

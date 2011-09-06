@@ -13,6 +13,7 @@
   "dependencies": {
   },
   "devDependencies": {
+    "es5-shim"     : "https://github.com/kriskowal/es5-shim/tarball/master",
     "jsdom"        : "0.2.1",
     "jquery"       : "1.5.1",
     "ejs"          : "0.4.3",

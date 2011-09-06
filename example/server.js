@@ -37,7 +37,8 @@ app.get('/oportunidades:format', function(req, res){
 });
 
 app.get('/widgets.js', function(req, res){
-	var file = fs.readFileSync("../lib/widgets.dialog.js").toString();
+	var file = fs.readFileSync("../lib/widgets.core.js").toString();
+	file += fs.readFileSync("../lib/widgets.dialog.js").toString();
     res.send(file);
 });
 
